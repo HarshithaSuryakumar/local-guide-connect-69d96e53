@@ -1,4 +1,4 @@
-import { Guide, Booking } from "@/types/guide";
+import { Guide, Booking, Review } from "@/types/guide";
 
 export const guides: Guide[] = [
   {
@@ -198,4 +198,26 @@ export const sampleBookings: Booking[] = [
     message: "Want to experience the Ganga Aarti and street food tour.",
     createdAt: "2026-02-15",
   },
+];
+
+export const reviews: Review[] = [
+  { id: "r1", guideId: "1", reviewer: "Neha M.", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=neha", rating: 5, comment: "Aarav made our Jaipur trip unforgettable! His knowledge of the old city is incredible.", date: "2026-02-10" },
+  { id: "r2", guideId: "1", reviewer: "Tom W.", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=tom", rating: 5, comment: "Best heritage walk I've ever been on. Highly recommended!", date: "2026-01-28" },
+  { id: "r3", guideId: "1", reviewer: "Sneha R.", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=sneha", rating: 4, comment: "Very knowledgeable and friendly. The food tour was a highlight.", date: "2026-01-15" },
+  { id: "r4", guideId: "2", reviewer: "Amit K.", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=amit", rating: 5, comment: "Priya showed us the real artistic side of Jaipur. Amazing experience!", date: "2026-02-05" },
+  { id: "r5", guideId: "2", reviewer: "Lisa C.", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=lisa", rating: 4, comment: "Wonderful cultural tour. Priya is very passionate about local art.", date: "2026-01-20" },
+  { id: "r6", guideId: "3", reviewer: "Rahul D.", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=rahul", rating: 5, comment: "Ravi knows every hidden beach in Goa. We had the best day ever!", date: "2026-02-12" },
+  { id: "r7", guideId: "3", reviewer: "Sophie L.", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=sophie", rating: 5, comment: "Perfect guide for adventure lovers. The water sports were thrilling!", date: "2026-01-30" },
+  { id: "r8", guideId: "3", reviewer: "Vikram S.", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=vikram", rating: 4, comment: "Great energy and local knowledge. Will book again.", date: "2026-01-10" },
+  { id: "r9", guideId: "4", reviewer: "Anita J.", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=anita", rating: 5, comment: "The backwater tour was serene and beautiful. Meera is wonderful!", date: "2026-02-08" },
+  { id: "r10", guideId: "4", reviewer: "David H.", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=david", rating: 4, comment: "Relaxing and informative trip through Kerala's nature.", date: "2026-01-22" },
+  { id: "r11", guideId: "5", reviewer: "Pooja B.", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=pooja", rating: 5, comment: "Arjun brings Hampi's ruins to life! Absolutely fascinating.", date: "2026-02-01" },
+  { id: "r12", guideId: "5", reviewer: "Mark T.", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=mark", rating: 5, comment: "The cycling tour through Hampi was the highlight of our India trip.", date: "2026-01-18" },
+  { id: "r13", guideId: "6", reviewer: "Kavita P.", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=kavita", rating: 5, comment: "Sanya's Varanasi tour was deeply moving. The Ganga Aarti was magical!", date: "2026-02-14" },
+  { id: "r14", guideId: "6", reviewer: "James B.", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=james", rating: 4, comment: "Great street food recommendations and spiritual insights.", date: "2026-01-25" },
+  { id: "r15", guideId: "6", reviewer: "Ritu S.", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=ritu", rating: 5, comment: "One of the best experiences of my life. Sanya is incredible!", date: "2026-01-08" },
+  { id: "r16", guideId: "7", reviewer: "Nikhil G.", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=nikhil", rating: 5, comment: "Kabir took us on an unforgettable trek. The views were breathtaking!", date: "2026-02-11" },
+  { id: "r17", guideId: "7", reviewer: "Emma R.", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=emma", rating: 5, comment: "Best adventure guide in Manali. Safety-conscious and fun!", date: "2026-01-29" },
+  { id: "r18", guideId: "8", reviewer: "Suresh M.", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=suresh", rating: 5, comment: "Diya's storytelling made the tea garden tour magical.", date: "2026-02-06" },
+  { id: "r19", guideId: "8", reviewer: "Claire D.", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=claire", rating: 4, comment: "Beautiful sunrise point visit. Diya is very knowledgeable.", date: "2026-01-16" },
 ];

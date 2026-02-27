@@ -1,12 +1,13 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { guides } from "@/data/guides";
+import { guides, reviews } from "@/data/guides";
 import Header from "@/components/Header";
-import { Star, MapPin, Globe, Clock, ArrowLeft, Calendar } from "lucide-react";
+import { Star, MapPin, Globe, Clock, ArrowLeft, Calendar, User } from "lucide-react";
 
 const GuideDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const guide = guides.find((g) => g.id === id);
+  const guideReviews = reviews.filter((r) => r.guideId === id);
 
   if (!guide) {
     return (
@@ -103,6 +104,45 @@ const GuideDetail = () => {
             )}
           </div>
         </div>
+
+        {/* Reviews Section */}
+        {guideReviews.length > 0 && (
+          <div className="mt-6 rounded-xl border bg-card p-6 shadow-sm">
+            <h2 className="text-lg font-semibold text-foreground">
+              Reviews ({guideReviews.length})
+            </h2>
+            <div className="mt-4 space-y-4">
+              {guideReviews.map((review) => (
+                <div key={review.id} className="border-b border-border pb-4 last:border-0 last:pb-0">
+                  <div className="flex items-start gap-3">
+                    <img
+                      src={review.avatar}
+                      alt={review.reviewer}
+                      className="h-9 w-9 shrink-0 rounded-full bg-accent"
+                    />
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between gap-2">
+                        <p className="text-sm font-medium text-foreground">{review.reviewer}</p>
+                        <span className="shrink-0 text-xs text-muted-foreground">
+                          {new Date(review.date).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })}
+                        </span>
+                      </div>
+                      <div className="mt-0.5 flex items-center gap-0.5">
+                        {Array.from({ length: 5 }).map((_, i) => (
+                          <Star
+                            key={i}
+                            className={`h-3.5 w-3.5 ${i < review.rating ? "fill-warning text-warning" : "text-muted-foreground/30"}`}
+                          />
+                        ))}
+                      </div>
+                      <p className="mt-1.5 text-sm text-muted-foreground">{review.comment}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

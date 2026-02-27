@@ -27,6 +27,16 @@ export interface Booking {
   createdAt: string;
 }
 
+export interface Review {
+  id: string;
+  guideId: string;
+  reviewer: string;
+  avatar: string;
+  rating: number;
+  comment: string;
+  date: string;
+}
+
 export type FilterState = {
   language: string;
   minRating: number;
