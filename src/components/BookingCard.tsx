@@ -40,14 +40,18 @@ const BookingCard = ({ booking }: BookingCardProps) => {
           {config.label}
         </span>
       </div>
-      <div className="mt-3 grid grid-cols-3 gap-3 text-sm">
+      <div className="mt-3 grid grid-cols-4 gap-3 text-sm">
         <div>
           <span className="text-xs text-muted-foreground">Date</span>
           <p className="font-medium">{new Date(booking.date).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })}</p>
         </div>
         <div>
-          <span className="text-xs text-muted-foreground">Guests</span>
-          <p className="font-medium">{booking.guests}</p>
+          <span className="text-xs text-muted-foreground">Duration</span>
+          <p className="font-medium">{booking.duration}h</p>
+        </div>
+        <div>
+          <span className="text-xs text-muted-foreground">Members</span>
+          <p className="font-medium">{booking.members}</p>
         </div>
         <div>
           <span className="text-xs text-muted-foreground">Total</span>
