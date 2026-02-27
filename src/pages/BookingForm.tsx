@@ -30,7 +30,7 @@ const BookingForm = () => {
   }
 
   const pricePerHour = Math.round(guide.pricePerDay / 8);
-  const totalPrice = pricePerHour * duration * members;
+  const totalPrice = pricePerHour * duration;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -125,7 +125,7 @@ const BookingForm = () => {
 
             <div className="rounded-lg bg-muted/50 p-4">
               <div className="flex items-center justify-between text-sm">
-                <span className="text-muted-foreground">₹{pricePerHour.toLocaleString()}/hr × {duration}h × {members} member{members > 1 ? "s" : ""}</span>
+                <span className="text-muted-foreground">₹{pricePerHour.toLocaleString()}/hr × {duration}h</span>
                 <span className="font-semibold text-foreground">₹{totalPrice.toLocaleString()}</span>
               </div>
             </div>
