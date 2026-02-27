@@ -19,7 +19,8 @@ export interface Booking {
   guideName: string;
   location: string;
   date: string;
-  guests: number;
+  duration: number;
+  members: number;
   status: "pending" | "approved" | "rejected";
   totalPrice: number;
   message: string;

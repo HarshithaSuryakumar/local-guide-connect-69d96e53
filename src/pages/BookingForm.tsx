@@ -12,7 +12,8 @@ const BookingForm = () => {
   const guide = guides.find((g) => g.id === guideId);
 
   const [date, setDate] = useState("");
-  const [guests, setGuests] = useState(1);
+  const [duration, setDuration] = useState(2);
+  const [members, setMembers] = useState(1);
   const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
@@ -28,7 +29,8 @@ const BookingForm = () => {
     );
   }
 
-  const totalPrice = guide.pricePerDay * guests;
+  const pricePerHour = Math.round(guide.pricePerDay / 8);
+  const totalPrice = pricePerHour * duration * members;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,7 +47,8 @@ const BookingForm = () => {
       guideName: guide.name,
       location: guide.location,
       date,
-      guests,
+      duration,
+      members,
       status: "pending",
       totalPrice,
       message,
@@ -86,14 +89,26 @@ const BookingForm = () => {
               />
             </div>
             <div>
-              <label className="mb-1.5 block text-sm font-medium text-foreground">Number of Guests</label>
+              <label className="mb-1.5 block text-sm font-medium text-foreground">Duration (hours)</label>
               <select
-                value={guests}
-                onChange={(e) => setGuests(Number(e.target.value))}
+                value={duration}
+                onChange={(e) => setDuration(Number(e.target.value))}
+                className="w-full rounded-lg border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
+              >
+                {[1, 2, 3, 4, 5, 6, 7, 8, 10, 12].map((n) => (
+                  <option key={n} value={n}>{n} hour{n > 1 ? "s" : ""}</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className="mb-1.5 block text-sm font-medium text-foreground">Members</label>
+              <select
+                value={members}
+                onChange={(e) => setMembers(Number(e.target.value))}
                 className="w-full rounded-lg border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
               >
                 {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
-                  <option key={n} value={n}>{n} guest{n > 1 ? "s" : ""}</option>
+                  <option key={n} value={n}>{n} member{n > 1 ? "s" : ""}</option>
                 ))}
               </select>
             </div>
@@ -110,7 +125,7 @@ const BookingForm = () => {
 
             <div className="rounded-lg bg-muted/50 p-4">
               <div className="flex items-center justify-between text-sm">
-                <span className="text-muted-foreground">₹{guide.pricePerDay.toLocaleString()} × {guests} guest{guests > 1 ? "s" : ""}</span>
+                <span className="text-muted-foreground">₹{pricePerHour.toLocaleString()}/hr × {duration}h × {members} member{members > 1 ? "s" : ""}</span>
                 <span className="font-semibold text-foreground">₹{totalPrice.toLocaleString()}</span>
               </div>
             </div>
