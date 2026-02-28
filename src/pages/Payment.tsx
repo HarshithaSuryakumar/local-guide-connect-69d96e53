@@ -37,7 +37,7 @@ const Payment = () => {
 
   const handlePayment = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!cardNumber || !expiry || !cvv || !name) {
+    if (!cardNumber || !name) {
       toast.error("Please fill in all payment details");
       return;
     }
@@ -115,28 +115,6 @@ const Payment = () => {
                 onChange={(e) => setName(e.target.value)}
                 className="w-full rounded-lg border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
               />
-            </div>
-            <div className="grid grid-cols-2 gap-3">
-              <div>
-                <label className="mb-1.5 block text-sm font-medium text-foreground">Expiry</label>
-                <input
-                  type="text"
-                  placeholder="MM/YY"
-                  value={expiry}
-                  onChange={(e) => setExpiry(e.target.value.slice(0, 5))}
-                  className="w-full rounded-lg border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
-                />
-              </div>
-              <div>
-                <label className="mb-1.5 block text-sm font-medium text-foreground">CVV</label>
-                <input
-                  type="text"
-                  placeholder="123"
-                  value={cvv}
-                  onChange={(e) => setCvv(e.target.value.replace(/\D/g, "").slice(0, 4))}
-                  className="w-full rounded-lg border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
-                />
-              </div>
             </div>
 
             <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
